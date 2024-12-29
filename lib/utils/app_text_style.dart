@@ -1,45 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 
-class AppTextStyle {
-  // SeoulNamsan
-  static TextStyle seoulNamsanThin = const TextStyle(
-    fontFamily: "Roboto",
+sealed class AppTextStyle {
+  AppTextStyle._();
+
+  static TextStyle poppinsThin = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w200,
     color: AppColors.black,
   );
-  static TextStyle seoulNamsanLight = const TextStyle(
-    fontFamily: "Roboto",
+  static TextStyle poppinsLight = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w300,
     color: AppColors.black,
   );
-  static TextStyle seoulNamsanRegular = const TextStyle(
-    fontFamily: "Roboto",
+  static TextStyle poppinsRegular = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w400,
     color: AppColors.black,
   );
-  static TextStyle seoulNamsanMedium = const TextStyle(
-    fontFamily: "Roboto",
+  static TextStyle poppinsMedium = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w500,
     color: AppColors.black,
   );
 
-  static TextStyle seoulNamsanSemiBold = const TextStyle(
-    fontFamily: "Roboto",
+  static TextStyle poppinsSemiBold = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w600,
     color: AppColors.black,
   );
 
-  static TextStyle seoulNamsanBold = const TextStyle(
-    fontFamily: "Roboto",
+  static TextStyle poppinsBold = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w700,
     color: AppColors.black,
   );
 
-  static TextStyle seoulNamsanBlack = const TextStyle(
-    fontFamily: "Roboto",
+  static TextStyle poppinsBlack = const TextStyle(
+    fontFamily: "Poppins",
     fontWeight: FontWeight.w800,
     color: AppColors.black,
   );
-
 }

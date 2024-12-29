@@ -1,6 +1,13 @@
 PODS:
+  - cloud_firestore (5.6.0):
+    - Firebase/Firestore (= 11.4.0)
+    - firebase_core
+    - Flutter
   - Firebase/CoreOnly (11.4.0):
     - FirebaseCore (= 11.4.0)
+  - Firebase/Firestore (11.4.0):
+    - Firebase/CoreOnly
+    - FirebaseFirestore (~> 11.4.0)
   - firebase_core (3.9.0):
     - Firebase/CoreOnly (= 11.4.0)
     - Flutter
@@ -54,6 +61,7 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
+  - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `11.4.0`)
   - Flutter (from `Flutter`)
@@ -77,6 +85,8 @@ SPEC REPOS:
     - nanopb
 
 EXTERNAL SOURCES:
+  cloud_firestore:
+    :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   FirebaseFirestore:
@@ -93,6 +103,7 @@ CHECKOUT OPTIONS:
     :tag: 11.4.0
 
 SPEC CHECKSUMS:
+  cloud_firestore: 56bca083ecf07f16188ace1d5b57123bcb1b3465
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
   firebase_core: b62a5080210edad3f2934314a8b2c6f5124e8e10
   FirebaseCore: e0510f1523bc0eb21653cac00792e1e2bd6f1771

@@ -37,6 +37,9 @@ dependencies:
   shared_preferences: ^2.3.4
   flutter_screenutil: ^5.9.3
   firebase_core: ^3.9.0
+  cloud_firestore: ^5.6.0
+  flutter_bloc: ^8.1.6
+  flutter_svg: ^2.0.16
 
 dev_dependencies:
   flutter_test:
@@ -61,8 +64,8 @@ flutter:
   uses-material-design: true
 
   assets:
-#    - assets/icons/
-#    - assets/images/
+    - assets/icons/
+    - assets/images/
     - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -72,14 +75,23 @@ flutter:
   # https://flutter.dev/assets-and-images/#from-packages
 
   fonts:
-    - family: Roboto
+    - family: Poppins
       fonts:
-        - asset: assets/fonts/roboto/RobotoSlab-Black.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-Bold.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-ExtraBold.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-ExtraLight.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-Light.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-Medium.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-Regular.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-SemiBold.ttf
-        - asset: assets/fonts/roboto/RobotoSlab-Thin.ttf
+        - asset: assets/fonts/poppins/Poppins-Black.ttf
+        - asset: assets/fonts/poppins/Poppins-BlackItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/poppins/Poppins-BoldItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+        - asset: assets/fonts/poppins/Poppins-ExtraBoldItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-ExtraLight.ttf
+        - asset: assets/fonts/poppins/Poppins-ExtraLightItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-Italic.ttf
+        - asset: assets/fonts/poppins/Poppins-Light.ttf
+        - asset: assets/fonts/poppins/Poppins-LightItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/poppins/Poppins-MediumItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+        - asset: assets/fonts/poppins/Poppins-SemiBoldItalic.ttf
+        - asset: assets/fonts/poppins/Poppins-Thin.ttf
+        - asset: assets/fonts/poppins/Poppins-ThinItalic.ttf

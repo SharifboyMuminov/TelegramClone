@@ -49,7 +49,8 @@ class _LoginScreenState extends State<LoginScreen> with AuthMixin {
                     ),
                     28.getH(),
                     Text(
-                      "Welcome to Scale Chat",
+                      "Uzbek Chatga xush kelibsiz",
+                      textAlign: TextAlign.center,
                       style: AppTextStyle.poppinsSemiBold.copyWith(
                         fontSize: 24.sp,
                         color: AppColors.c1A1A1A,

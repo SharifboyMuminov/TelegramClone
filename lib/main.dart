@@ -12,6 +12,7 @@ void main(List<String> args) async {
     DeviceOrientation.portraitDown,
   ]);
 
+
   runApp(const MyApp());
 }
 

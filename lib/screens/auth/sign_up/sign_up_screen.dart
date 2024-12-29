@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:telegramclone/cubit/auth/auth_cubit.dart';
+import 'package:telegramclone/data/enums/forms_status.dart';
 import 'package:telegramclone/screens/auth/mixin/auth_mixin.dart';
 import 'package:telegramclone/screens/auth/widget/auth_text_from_field.dart';
 import 'package:telegramclone/screens/widget/costume_button.dart';
@@ -72,9 +75,14 @@ class _SignUpScreenState extends State<SignUpScreen> with AuthMixin {
                 ),
                 16.getH(),
                 CostumeButton(
+                  isLoading: context.watch<AuthCubit>().state.formsStatus == FormsStatus.loading,
                   title: "Tizimga kirish",
                   onTab: () {
                     FocusScope.of(context).unfocus();
+                    context.read<AuthCubit>().register(
+                          userName: userName,
+                          password: password,
+                        );
                   },
                   isActive: super.checkInput(userName, password),
                 ),

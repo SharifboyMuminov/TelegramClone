@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telegramclone/utils/app_colors.dart';
@@ -12,10 +13,12 @@ class CostumeButton extends StatelessWidget {
     this.backgroundColor,
     this.titleColor,
     this.isActive = true,
+    this.isLoading = false,
   });
 
   final String title;
   final bool isActive;
+  final bool isLoading;
   final VoidCallback onTab;
   final Color? titleColor;
   final Color? backgroundColor;
@@ -27,21 +30,29 @@ class CostumeButton extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.symmetric(vertical: 12.he),
-          backgroundColor: isActive
-              ? backgroundColor ?? AppColors.c3355FF
+          backgroundColor: !isLoading
+              ? isActive
+                  ? backgroundColor ?? AppColors.c3355FF
+                  : AppColors.c666666.withValues(alpha: 0.5)
               : AppColors.c666666.withValues(alpha: 0.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ),
         ),
-        onPressed: isActive ? onTab : null,
-        child: Text(
-          title,
-          style: AppTextStyle.poppinsSemiBold.copyWith(
-            fontSize: 16.sp,
-            color: titleColor ?? AppColors.white,
-          ),
-        ),
+        onPressed: isLoading
+            ? null
+            : isActive
+                ? onTab
+                : null,
+        child: isLoading
+            ? CupertinoActivityIndicator(color: AppColors.white)
+            : Text(
+                title,
+                style: AppTextStyle.poppinsSemiBold.copyWith(
+                  fontSize: 16.sp,
+                  color: titleColor ?? AppColors.white,
+                ),
+              ),
       ),
     );
   }

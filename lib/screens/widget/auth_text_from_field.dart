@@ -4,10 +4,10 @@ import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_size.dart';
 import 'package:telegramclone/utils/app_text_style.dart';
 
-class AuthTextFromField extends StatelessWidget {
-  const AuthTextFromField({
+class CostumeTextFromField extends StatelessWidget {
+  const CostumeTextFromField({
     super.key,
-    required this.hintText,
+    this.hintText,
     this.controller,
     this.onChanged,
     this.textInputAction,
@@ -16,7 +16,7 @@ class AuthTextFromField extends StatelessWidget {
     this.errorText,
   });
 
-  final String hintText;
+  final String? hintText;
   final TextEditingController? controller;
   final TextInputAction? textInputAction;
   final TextInputType? textInputType;
@@ -63,7 +63,8 @@ class AuthTextFromField extends StatelessWidget {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.r),
-            borderSide: BorderSide(color: AppColors.cE61A1A.withValues(alpha: 0.5), width: 1.we),
+            borderSide: BorderSide(
+                color: AppColors.cE61A1A.withValues(alpha: 0.5), width: 1.we),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.r),

@@ -6,7 +6,7 @@ import 'package:telegramclone/cubit/auth/auth_state.dart';
 import 'package:telegramclone/data/enums/forms_status.dart';
 import 'package:telegramclone/screens/auth/mixin/auth_mixin.dart';
 import 'package:telegramclone/screens/auth/sign_up/sign_up_screen.dart';
-import 'package:telegramclone/screens/auth/widget/auth_text_from_field.dart';
+import 'package:telegramclone/screens/widget/auth_text_from_field.dart';
 import 'package:telegramclone/screens/home_screen/home_screen.dart';
 import 'package:telegramclone/screens/widget/costume_button.dart';
 import 'package:telegramclone/utils/app_colors.dart';
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> with AuthMixin {
                       ),
                     ),
                     60.getH(),
-                    AuthTextFromField(
+                    CostumeTextFromField(
                       onChanged: (v) {
                         setState(() {
                           userName = v;
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> with AuthMixin {
                       errorText: "'@' va ' ' belgilardan tashqari bo'lsin",
                     ),
                     16.getH(),
-                    AuthTextFromField(
+                    CostumeTextFromField(
                       onChanged: (v) {
                         setState(() {
                           password = v;

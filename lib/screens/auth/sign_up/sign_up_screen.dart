@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telegramclone/cubit/auth/auth_cubit.dart';
 import 'package:telegramclone/data/enums/forms_status.dart';
 import 'package:telegramclone/screens/auth/mixin/auth_mixin.dart';
-import 'package:telegramclone/screens/auth/widget/auth_text_from_field.dart';
+import 'package:telegramclone/screens/widget/auth_text_from_field.dart';
 import 'package:telegramclone/screens/widget/costume_button.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_images.dart';
@@ -53,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> with AuthMixin {
                   ),
                 ),
                 60.getH(),
-                AuthTextFromField(
+                CostumeTextFromField(
                   onChanged: (v) {
                     setState(() {
                       userName = v;
@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> with AuthMixin {
                   errorText: "'@' va ' ' belgilardan tashqari bo'lsin",
                 ),
                 16.getH(),
-                AuthTextFromField(
+                CostumeTextFromField(
                   onChanged: (v) {
                     setState(() {
                       password = v;

@@ -11,13 +11,12 @@ void main(List<String> args) async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  StorageRepository.instance;
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  StorageRepository.instance;
-
   runApp(const App());
 }
-

@@ -3,7 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telegramclone/cubit/auth/auth_cubit.dart';
+import 'package:telegramclone/cubit/user/user_cubit.dart';
 import 'package:telegramclone/data/repositories/auth_repository.dart';
+import 'package:telegramclone/data/repositories/search_repository.dart';
+import 'package:telegramclone/data/repositories/user_repository.dart';
 import 'package:telegramclone/screens/splash/splash_screen.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 
@@ -17,7 +20,12 @@ class App extends StatelessWidget {
         RepositoryProvider(
           create: (_) => AuthRepository(),
         ),
-
+        RepositoryProvider(
+          create: (_) => UserRepository(),
+        ),
+        RepositoryProvider(
+          create: (_) => SearchRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -26,7 +34,11 @@ class App extends StatelessWidget {
               context.read<AuthRepository>(),
             ),
           ),
-
+          BlocProvider(
+            create: (context) => UserCubit(
+              context.read<UserRepository>(),
+            ),
+          ),
         ],
         child: const MyApp(),
       ),
@@ -54,6 +66,10 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               useMaterial3: true,
               scaffoldBackgroundColor: AppColors.white,
+              appBarTheme: const AppBarTheme(
+                backgroundColor: AppColors.white,
+                surfaceTintColor: Colors.transparent,
+              ),
             ),
             home: child,
           ),

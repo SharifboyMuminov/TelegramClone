@@ -36,4 +36,12 @@ class UserModel {
       "password": password,
     };
   }
+
+  factory UserModel.initial() {
+    return UserModel(
+      id: "",
+      password: "",
+      userName: "",
+    );
+  }
 }

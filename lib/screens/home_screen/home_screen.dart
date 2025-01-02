@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telegramclone/cubit/user/user_cubit.dart';
+import 'package:telegramclone/screens/home_screen/chat_room/chat_room_screen.dart';
 import 'package:telegramclone/screens/home_screen/widget/home_app_bar.dart';
 import 'package:telegramclone/screens/home_screen/widget/user_item.dart';
 import 'package:telegramclone/utils/app_size.dart';
@@ -31,7 +32,16 @@ class _HomeScreenState extends State<HomeScreen> {
         itemBuilder: (BuildContext context, int index) {
           return UserItem(
             isLast: 14 == index,
-            onTab: () {},
+            onTab: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ChatRoomScreen();
+                  },
+                ),
+              );
+            },
             title: "asdf",
             image: '',
           );

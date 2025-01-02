@@ -47,7 +47,7 @@ class UserItem extends StatelessWidget {
                   ),
                   child: image.isEmpty
                       ? Text(
-                          title.substring(2),
+                          title.substring(0, 2),
                           style: AppTextStyle.poppinsMedium.copyWith(
                             fontSize: 20.sp,
                           ),

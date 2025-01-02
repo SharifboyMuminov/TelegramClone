@@ -10,5 +10,6 @@ sealed class AppImages {
   // icons
   static String profileSvg = "$_iconsPath/profile.svg";
   static String logoutSvg = "$_iconsPath/logout.svg";
+  static String threeDotSvg = "$_iconsPath/three_dot.svg";
 
 }

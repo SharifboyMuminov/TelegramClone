@@ -60,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> with AuthMixin {
                     });
                   },
                   hintText: "Foydalanuvchi nomi",
-                  regExp: AppRegExp.userName,
+                  regExp: AppRegExp.userNameRegExp,
                   errorText: "'@' va ' ' belgilardan tashqari bo'lsin",
                 ),
                 16.getH(),

@@ -6,7 +6,7 @@ import 'package:telegramclone/data/enums/forms_status.dart';
 import 'package:telegramclone/data/repositories/search_repository.dart';
 import 'package:telegramclone/screens/home_screen/search/cubit/search_cubit.dart';
 import 'package:telegramclone/screens/home_screen/search/cubit/search_state.dart';
-import 'package:telegramclone/screens/home_screen/search/widget/search_item.dart';
+import 'package:telegramclone/screens/home_screen/widget/user_item.dart';
 import 'package:telegramclone/screens/widget/auth_text_from_field.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_size.dart';
@@ -31,6 +31,14 @@ class _SearchingUsersScreenState extends State<SearchingUsersScreen> {
         builder: (BuildContext context, state) {
           return Scaffold(
             appBar: AppBar(
+              toolbarHeight: 68.he,
+
+              shape: Border(
+                bottom: BorderSide(
+                  color: AppColors.c333333.withValues(alpha: 0.2),
+                  width: 1,
+                ),
+              ),
               title: Text(
                 "Qidiruv",
                 style: AppTextStyle.poppinsSemiBold.copyWith(
@@ -68,9 +76,10 @@ class _SearchingUsersScreenState extends State<SearchingUsersScreen> {
                   child: ListView.builder(
                     itemCount: state.users.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return SearchItem(
+                      return UserItem(
                         onTab: () {},
                         title: state.users[index].userName,
+                        image: '',
                       );
                     },
                   ),

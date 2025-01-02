@@ -6,4 +6,9 @@ sealed class AppImages {
 
   // images
   static String splashIconPng = "$_imagePath/splash_icon.png";
+
+  // icons
+  static String profileSvg = "$_iconsPath/profile.svg";
+  static String logoutSvg = "$_iconsPath/logout.svg";
+
 }

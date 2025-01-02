@@ -45,5 +45,13 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Rasmlarni tanlash uchun ruxsat so'raladi.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Kameradan foydalanish uchun ruxsat so'raladi.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Mikrofonni ishlatish uchun ruxsat so'raladi.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Rasmlarni saqlash uchun ruxsat so'raladi.</string>
 </dict>
 </plist>

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telegramclone/cubit/auth/auth_cubit.dart';
 import 'package:telegramclone/cubit/user/user_cubit.dart';
 import 'package:telegramclone/data/repositories/auth_repository.dart';
+import 'package:telegramclone/data/repositories/image_upload_repository.dart';
 import 'package:telegramclone/data/repositories/search_repository.dart';
 import 'package:telegramclone/data/repositories/user_repository.dart';
 import 'package:telegramclone/screens/splash/splash_screen.dart';
@@ -26,6 +27,9 @@ class App extends StatelessWidget {
         RepositoryProvider(
           create: (_) => SearchRepository(),
         ),
+        RepositoryProvider(
+          create: (_) => ImageUploadRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -37,6 +41,7 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (context) => UserCubit(
               context.read<UserRepository>(),
+              context.read<ImageUploadRepository>(),
             ),
           ),
         ],

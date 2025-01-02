@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telegramclone/cubit/user/user_cubit.dart';
-import 'package:telegramclone/screens/home_screen/search/search_users_screen.dart';
+import 'package:telegramclone/screens/home_screen/widget/home_app_bar.dart';
+import 'package:telegramclone/screens/home_screen/widget/user_item.dart';
+import 'package:telegramclone/utils/app_size.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,23 +24,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SearchingUsersScreen();
-                  },
-                ),
-              );
-            },
-            icon: Icon(CupertinoIcons.search),
-            color: CupertinoColors.activeBlue,
-          ),
-        ],
+      appBar: HomeAppBar(),
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(vertical: 20.he),
+        itemCount: 15,
+        itemBuilder: (BuildContext context, int index) {
+          return UserItem(
+            isLast: 14 == index,
+            onTab: () {},
+            title: "asdf",
+            image: '',
+          );
+        },
       ),
     );
   }

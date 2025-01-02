@@ -42,13 +42,45 @@ class UserRepository {
     return networkResponse;
   }
 
+  Future<NetworkResponse> updateFiled({required UserModel userModel}) async {
+    NetworkResponse networkResponse = NetworkResponse();
+
+    networkResponse = await _checkUser(userName: userModel.userName);
+
+    if (networkResponse.data != null) {
+      UserModel user = networkResponse.data;
+      if (user.id != userModel.id) {
+        networkResponse.data = null;
+        networkResponse.errorText = "Bunday foydalanuvchi mavjud";
+        return networkResponse;
+      }
+    }
+
+    try {
+      await _firebaseFirestore
+          .collection("users")
+          .doc(userModel.id)
+          .update(userModel.toJson());
+      networkResponse.data = userModel;
+    } on FirebaseException catch (e) {
+      log(e.friendlyMessage);
+
+      networkResponse.errorText = e.friendlyMessage;
+    } catch (e) {
+      log("Noma'lum xatolik: catch (e) ");
+
+      networkResponse.errorText = "Noma'lum xatolik: catch (e) ";
+    }
+    return networkResponse;
+  }
+
   Future<NetworkResponse> _checkUser({required String userName}) async {
     NetworkResponse networkResponse = NetworkResponse();
 
     try {
       var result = await _firebaseFirestore
           .collection("users")
-          .where("user_name", isEqualTo: "@$userName")
+          .where("user_name", isEqualTo: userName)
           .get();
 
       List<UserModel> userModels =

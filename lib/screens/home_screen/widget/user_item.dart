@@ -1,18 +1,23 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_size.dart';
 import 'package:telegramclone/utils/app_text_style.dart';
 
-class SearchItem extends StatelessWidget {
-  const SearchItem({
+class UserItem extends StatelessWidget {
+  const UserItem({
     super.key,
     required this.onTab,
     required this.title,
+    required this.image,
+    this.isLast = false,
   });
 
   final VoidCallback onTab;
   final String title;
+  final String image;
+  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +38,21 @@ class SearchItem extends StatelessWidget {
             child: Row(
               children: [
                 Container(
+                  alignment: Alignment.center,
                   width: 48.we,
                   height: 48.we,
                   decoration: BoxDecoration(
-                    color: AppColors.cD0D8FF,
+                    color: generateRandomColor(),
                     shape: BoxShape.circle,
                   ),
+                  child: image.isEmpty
+                      ? Text(
+                          title.substring(2),
+                          style: AppTextStyle.poppinsMedium.copyWith(
+                            fontSize: 20.sp,
+                          ),
+                        )
+                      : SizedBox(),
                 ),
                 8.getW(),
                 Column(
@@ -63,13 +77,24 @@ class SearchItem extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: double.infinity,
-            height: 1.he,
-            color: AppColors.cD0D8FF,
-          ),
+          if (!isLast)
+            Container(
+              width: double.infinity,
+              height: 1.he,
+              color: AppColors.cD0D8FF,
+            ),
         ],
       ),
     );
   }
+}
+
+Color generateRandomColor() {
+  final Random random = Random();
+  return Color.fromARGB(
+    255,
+    random.nextInt(128) + 127,
+    random.nextInt(128) + 127,
+    random.nextInt(129) + 127,
+  );
 }

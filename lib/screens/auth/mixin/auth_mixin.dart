@@ -7,7 +7,7 @@ import 'package:telegramclone/utils/app_text_style.dart';
 mixin AuthMixin {
   bool checkInput(String userName, String password) {
     return AppRegExp.passwordRegExp.hasMatch(password) &&
-        AppRegExp.userName.hasMatch(userName);
+        AppRegExp.userNameRegExp.hasMatch(userName);
   }
 
   void sowErrorSnackBar(BuildContext context, String errorText) {

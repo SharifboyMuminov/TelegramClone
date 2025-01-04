@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telegramclone/cubit/auth/auth_cubit.dart';
+import 'package:telegramclone/cubit/home/home_cubit.dart';
 import 'package:telegramclone/cubit/user/user_cubit.dart';
 import 'package:telegramclone/data/repositories/auth_repository.dart';
+import 'package:telegramclone/data/repositories/home_repository.dart';
 import 'package:telegramclone/data/repositories/image_upload_repository.dart';
 import 'package:telegramclone/data/repositories/search_repository.dart';
 import 'package:telegramclone/data/repositories/user_repository.dart';
@@ -30,12 +32,20 @@ class App extends StatelessWidget {
         RepositoryProvider(
           create: (_) => ImageUploadRepository(),
         ),
+        RepositoryProvider(
+          create: (_) => HomeRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => AuthCubit(
               context.read<AuthRepository>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => HomeCubit(
+              context.read<HomeRepository>(),
             ),
           ),
           BlocProvider(

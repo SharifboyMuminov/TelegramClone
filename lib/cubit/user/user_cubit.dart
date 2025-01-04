@@ -23,12 +23,8 @@ class UserCubit extends Cubit<UserState> {
     NetworkResponse networkResponse = await _userRepository.getUser();
 
     if (networkResponse.errorText.isEmpty) {
-      emit(
-        state.copyWith(
-          formsStatus: FormsStatus.success,
-          userModel: networkResponse.data,
-        ),
-      );
+      UserModel userModel = networkResponse.data;
+      updateUserFild(userModel: userModel.copyWith(isOnline: true));
     } else {
       emit(
         state.copyWith(
@@ -37,6 +33,10 @@ class UserCubit extends Cubit<UserState> {
         ),
       );
     }
+  }
+
+  Future<void> setActiveProfile([bool isActiveUser = false]) async {
+    updateUserFild(userModel: state.userModel.copyWith(isOnline: isActiveUser));
   }
 
   Future<void> uploadImage({

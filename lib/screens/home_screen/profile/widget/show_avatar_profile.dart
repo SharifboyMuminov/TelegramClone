@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +7,8 @@ import 'package:telegramclone/screens/home_screen/dialogs/image_question_dialog.
 import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_size.dart';
 
-class ShowAvatar extends StatelessWidget {
-  const ShowAvatar({
+class ShowAvatarProfile extends StatelessWidget {
+  const ShowAvatarProfile({
     super.key,
     required this.imageUrl,
     required this.onChangedFile,

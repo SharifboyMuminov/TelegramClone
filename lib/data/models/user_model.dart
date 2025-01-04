@@ -5,6 +5,7 @@ class UserModel {
   final String password;
   final String imageUrl;
   final String imagePath;
+  final bool isOnline;
 
   UserModel({
     required this.id,
@@ -13,6 +14,7 @@ class UserModel {
     required this.userFullName,
     required this.imagePath,
     required this.imageUrl,
+    required this.isOnline,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class UserModel {
       imagePath: json["image_path"] as String? ?? "",
       imageUrl: json["image_url"] as String? ?? "",
       userFullName: json["user_ful_name"] as String? ?? "",
+      isOnline: json["is_online"] as bool? ?? false,
     );
   }
 
@@ -33,6 +36,7 @@ class UserModel {
     String? imageUrl,
     String? imagePath,
     String? userFullName,
+    bool? isOnline,
   }) {
     return UserModel(
       id: id ?? this.id,
@@ -41,6 +45,7 @@ class UserModel {
       imagePath: imagePath ?? this.imagePath,
       imageUrl: imageUrl ?? this.imageUrl,
       userFullName: userFullName ?? this.userFullName,
+      isOnline: isOnline ?? this.isOnline,
     );
   }
 
@@ -52,6 +57,7 @@ class UserModel {
       "image_url": imageUrl,
       "image_path": imagePath,
       "user_ful_name": userFullName,
+      "is_online": isOnline,
     };
   }
 
@@ -63,6 +69,7 @@ class UserModel {
       imagePath: '',
       imageUrl: '',
       userFullName: '',
+      isOnline: false,
     );
   }
 }

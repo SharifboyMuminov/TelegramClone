@@ -1,6 +1,7 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:telegramclone/data/models/user_model.dart';
+import 'package:telegramclone/screens/home_screen/widget/show_avatar.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_size.dart';
 import 'package:telegramclone/utils/app_text_style.dart';
@@ -9,14 +10,12 @@ class UserItem extends StatelessWidget {
   const UserItem({
     super.key,
     required this.onTab,
-    required this.title,
-    required this.image,
+    required this.userModel,
     this.isLast = false,
   });
 
   final VoidCallback onTab;
-  final String title;
-  final String image;
+  final UserModel userModel;
   final bool isLast;
 
   @override
@@ -37,29 +36,13 @@ class UserItem extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.we, vertical: 12.he),
             child: Row(
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  width: 48.we,
-                  height: 48.we,
-                  decoration: BoxDecoration(
-                    color: generateRandomColor(),
-                    shape: BoxShape.circle,
-                  ),
-                  child: image.isEmpty
-                      ? Text(
-                          title.substring(0, 2),
-                          style: AppTextStyle.poppinsMedium.copyWith(
-                            fontSize: 20.sp,
-                          ),
-                        )
-                      : SizedBox(),
-                ),
+                ShowAvatar(userModel: userModel, color: AppColors.c3355FF.withValues(alpha: 0.5)),
                 8.getW(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      userModel.userFullName,
                       style: AppTextStyle.poppinsRegular.copyWith(
                         fontSize: 16.sp,
                         color: AppColors.c333333,
@@ -89,12 +72,3 @@ class UserItem extends StatelessWidget {
   }
 }
 
-Color generateRandomColor() {
-  final Random random = Random();
-  return Color.fromARGB(
-    255,
-    random.nextInt(128) + 127,
-    random.nextInt(128) + 127,
-    random.nextInt(129) + 127,
-  );
-}

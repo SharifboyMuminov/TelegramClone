@@ -60,7 +60,7 @@ class AuthRepository {
       var res = await _firebaseFirestore.collection("users").add({
         "user_name": "@$userName",
         "password": password,
-        "user_ful_name": userName,
+        "user_ful_name": userName.replaceAll("@", ""),
       });
 
       await _firebaseFirestore

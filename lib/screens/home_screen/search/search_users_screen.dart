@@ -32,7 +32,6 @@ class _SearchingUsersScreenState extends State<SearchingUsersScreen> {
           return Scaffold(
             appBar: AppBar(
               toolbarHeight: 68.he,
-
               shape: Border(
                 bottom: BorderSide(
                   color: AppColors.c333333.withValues(alpha: 0.2),
@@ -78,8 +77,7 @@ class _SearchingUsersScreenState extends State<SearchingUsersScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       return UserItem(
                         onTab: () {},
-                        title: state.users[index].userName,
-                        image: '',
+                        userModel: state.users[index],
                       );
                     },
                   ),

@@ -8,7 +8,7 @@ import 'package:telegramclone/cubit/user/user_state.dart';
 import 'package:telegramclone/data/enums/forms_status.dart';
 import 'package:telegramclone/screens/home_screen/profile/edit_profile.dart';
 import 'package:telegramclone/screens/home_screen/profile/widget/profile_item.dart';
-import 'package:telegramclone/screens/home_screen/profile/widget/show_avatar.dart';
+import 'package:telegramclone/screens/home_screen/profile/widget/show_avatar_profile.dart';
 import 'package:telegramclone/screens/home_screen/profile/widget/show_logout.dart';
 import 'package:telegramclone/utils/app_colors.dart';
 import 'package:telegramclone/utils/app_images.dart';
@@ -48,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             padding: EdgeInsets.only(bottom: 20.he, top: 32.he),
             child: Column(
               children: [
-                ShowAvatar(
+                ShowAvatarProfile(
                   imageUrl: state.userModel.imageUrl,
                   onChangedFile: (XFile value) {
                     context.read<UserCubit>().uploadImage(

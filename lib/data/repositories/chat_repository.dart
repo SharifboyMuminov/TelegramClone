@@ -79,7 +79,6 @@ class ChatRepository {
     } catch (e) {
       log("Noma'lum xatolik: catch (e) ");
 
-      // Boshqa umumiy xatoliklarni streamda qaytaramiz.
       return Stream.error("Noma'lum xatolik: $e");
     }
   }

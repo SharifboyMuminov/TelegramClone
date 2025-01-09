@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:telegramclone/cubit/chat_bloc/chat_state.dart';
+import 'package:telegramclone/cubit/chat/chat_state.dart';
 import 'package:telegramclone/data/enums/forms_status.dart';
 import 'package:telegramclone/data/models/message_model.dart';
 import 'package:telegramclone/data/models/network_response.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:telegramclone/cubit/chat_bloc/chat_cubit.dart';
-import 'package:telegramclone/cubit/chat_bloc/chat_state.dart';
+import 'package:telegramclone/cubit/chat/chat_cubit.dart';
+import 'package:telegramclone/cubit/chat/chat_state.dart';
 import 'package:telegramclone/data/models/user_model.dart';
 import 'package:telegramclone/data/repositories/chat_repository.dart';
 import 'package:telegramclone/screens/home_screen/widget/show_avatar.dart';

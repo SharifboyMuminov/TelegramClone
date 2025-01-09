@@ -6,6 +6,7 @@ import 'package:telegramclone/cubit/auth/auth_cubit.dart';
 import 'package:telegramclone/cubit/home/home_cubit.dart';
 import 'package:telegramclone/cubit/user/user_cubit.dart';
 import 'package:telegramclone/data/repositories/auth_repository.dart';
+import 'package:telegramclone/data/repositories/chat_repository.dart';
 import 'package:telegramclone/data/repositories/home_repository.dart';
 import 'package:telegramclone/data/repositories/image_upload_repository.dart';
 import 'package:telegramclone/data/repositories/search_repository.dart';
@@ -34,6 +35,9 @@ class App extends StatelessWidget {
         ),
         RepositoryProvider(
           create: (_) => HomeRepository(),
+        ),
+        RepositoryProvider(
+          create: (_) => ChatRepository(),
         ),
       ],
       child: MultiBlocProvider(

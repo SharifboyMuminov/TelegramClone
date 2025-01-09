@@ -38,7 +38,7 @@ class ChatItem extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 12.he, horizontal: 16.we),
             child: Text(
-              "Hello... do you DJENT?",
+              title,
               style: AppTextStyle.poppinsRegular.copyWith(
                 fontSize: 16.sp,
                 color: isMyMessage ? AppColors.white : AppColors.c333333,

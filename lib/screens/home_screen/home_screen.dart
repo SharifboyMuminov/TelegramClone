@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     MaterialPageRoute(
                       builder: (context) {
                         return ChatRoomScreen(
-                          userModel: state.users[index],
+                          secondUserModel: state.users[index],
                         );
                       },
                     ),

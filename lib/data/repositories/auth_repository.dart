@@ -25,6 +25,8 @@ class AuthRepository {
           result.docs.map((value) => UserModel.fromJson(value.data())).toList();
 
       if (userModels.isNotEmpty) {
+        StorageRepository.setString(key: "user_id", value: userModels.first.id);
+
         StorageRepository.setString(key: "user_name", value: userName);
         networkResponse.data = userModels.first;
       } else {
@@ -69,6 +71,7 @@ class AuthRepository {
           .update({"id": res.id});
 
       StorageRepository.setString(key: "user_name", value: userName);
+      StorageRepository.setString(key: "user_id", value: res.id);
     } on FirebaseException catch (e) {
       log(e.friendlyMessage);
 

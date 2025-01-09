@@ -19,7 +19,7 @@ class ShowAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
+    return userModel.imageUrl.isNotEmpty ? CachedNetworkImage(
       imageUrl: userModel.imageUrl,
       imageBuilder: (context, imageProvider) => Container(
         width: 52.we,
@@ -81,6 +81,37 @@ class ShowAvatar extends StatelessWidget {
           ),
         );
       },
+    ) : Container(
+      width: 52.we,
+      height: 52.we,
+      decoration: BoxDecoration(
+        color: color ?? AppColors.c333333.withValues(alpha: 0.5),
+        shape: BoxShape.circle,
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Text(
+            userModel.userFullName.substring(0, 2),
+            style: AppTextStyle.poppinsMedium.copyWith(
+              fontSize: 20.sp,
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              width: 13.we,
+              height: 13.we,
+              decoration: BoxDecoration(
+                color: userModel.isOnline
+                    ? Colors.lightGreenAccent
+                    : AppColors.cB3B3B3,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

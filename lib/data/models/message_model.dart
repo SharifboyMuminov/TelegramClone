@@ -13,14 +13,7 @@ class MessageModel {
     required this.isMyMessage,
   });
 
-  factory MessageModel.fromJson(QueryDocumentSnapshot user) {
-    Map<String, dynamic> json = {
-      "created_time": user["created_time"],
-      "message_text": user["message_text"],
-      "message_id": user["message_id"],
-      "is_my_message": user["is_my_message"],
-    };
-
+  factory MessageModel.fromJson(Map<String, dynamic> json) {
     return MessageModel(
       createdTime: json["created_time"] as String? ?? "",
       messageText: json["message_text"] as String? ?? "",

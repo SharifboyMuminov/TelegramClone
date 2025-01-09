@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:telegramclone/data/local/storage_repository.dart';
 import 'package:telegramclone/data/models/message_model.dart';
 import 'package:telegramclone/data/models/network_response.dart';
 import 'package:telegramclone/utils/app_extension.dart';
@@ -9,11 +10,11 @@ class ChatRepository {
 
   Future<NetworkResponse> sendMessage({
     required MessageModel messageModel,
-    required String myDocId,
     required String docId,
   }) async {
     NetworkResponse networkResponse = NetworkResponse();
     String doc = "";
+    String myDocId = StorageRepository.getString(key: "user_id");
 
     if (myDocId.codeUnits.first > docId.codeUnits.first) {
       doc = "${myDocId}_$docId";
@@ -45,5 +46,41 @@ class ChatRepository {
     }
 
     return networkResponse;
+  }
+
+  Stream<List<MessageModel>> listenChatRoom({required String docId}) {
+    String doc = "";
+    String myDocId = StorageRepository.getString(key: "user_id");
+
+    if (myDocId.codeUnits.first > docId.codeUnits.first) {
+      doc = "${myDocId}_$docId";
+    } else {
+      doc = "${docId}_$myDocId";
+    }
+
+    try {
+      return _firebaseFirestore
+          .collection("message")
+          .doc(doc)
+          .collection("chat_room")
+          .orderBy("sort", descending: false)
+          .snapshots()
+          .map(
+            (snapshot) => snapshot.docs
+                .map(
+                  (doc) => MessageModel.fromJson(doc.data()),
+                )
+                .toList(),
+          );
+    } on FirebaseException catch (e) {
+      log(e.friendlyMessage);
+
+      return Stream.error("Firebase xatoligi: ${e.friendlyMessage}");
+    } catch (e) {
+      log("Noma'lum xatolik: catch (e) ");
+
+      // Boshqa umumiy xatoliklarni streamda qaytaramiz.
+      return Stream.error("Noma'lum xatolik: $e");
+    }
   }
 }
